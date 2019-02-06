@@ -30,5 +30,10 @@ for item in products:
     product_subtotals[item] = product_total
 
 sorted_product_subtotals = sorted(product_subtotals.items(), key = operator.itemgetter(1))
-product_subtotals = dict(sorted_product_subtotals)
+product_subtotals = dict(reversed(sorted_product_subtotals))
 
+print('TOP SELLING PRODUCTS: ')
+count = 1
+for item in product_subtotals:
+    print(str(count) + '. ' + item + ' $' + str('%0.2f'%round(product_subtotals[item], 2)))
+    count = count + 1
